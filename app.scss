@@ -1,0 +1,122 @@
+.form-tester {
+  &__wrapper {
+    min-width: 400px;
+    max-width: 800px;
+    width: 100%;
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+  &__task {
+    display: none;
+    &--show {
+      display: block;
+    }
+    h3 {
+      margin-bottom: 40px;
+    }
+    &-find {
+      display: flex;
+      &-left,
+      &-right {
+        width: 50%;
+      }
+      &-right {
+        ul {
+          li {
+            cursor: move;
+          }
+        }
+      }
+      &-left {
+        position: relative;
+        margin-right: 40px;
+        ul {
+          li {
+            &:before {
+              content: '<>';
+              font-size: 14px;
+              font-weight: bold;
+              position: absolute;
+              right: -28px;
+              z-index: 9;
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+    }
+    &-inline-inputs {
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li {
+          margin-bottom: 20px;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          padding-bottom: 20px;
+        }
+      }
+      input {
+        display: inline-block;
+        width: 80px;
+        margin: 0 10px;
+      }
+    }
+    &-once {
+      display: flex;
+      &-img {
+        width: 250px;
+        text-align: center;
+        img {
+          max-width: 250px;
+        }
+      }
+      .btn-group-vertical {
+        width: 100%;
+        margin-left: 15px;
+        .btn {
+          margin-bottom: 5px;
+        }
+      }
+    }
+    &-sentences {
+      .rw {
+        margin-bottom: 20px;
+        border: 2px solid rgba(0, 0, 0, 0.05);
+        border-radius: 3px;
+        padding: 5px;
+      }
+      &-field {
+        width: 100%;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.02);
+        border-radius: 4px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+
+        p {
+          margin: 0;
+          padding: 0 10px;
+          flex: 1;
+          button {
+            margin: 0;
+          }
+        }
+      }
+      &-words {
+        button {
+          margin-bottom: 5px;
+          &.hide {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

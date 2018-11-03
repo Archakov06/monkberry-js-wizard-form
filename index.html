@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css' />
+    <link rel="stylesheet" href="./app.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="FormTesterApp" class="form-tester">
+        <script type="text/monkberry" id="Form">
+            <div class="form-tester__wrapper">
+                {% if !step %}
+                <form id="start-form" class="form-tester__form">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Имя ребенка:</label>
+                        <input type="text" class="form-control" id="child-firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Фамилия ребенка:</label>
+                        <input type="text" class="form-control" id="child-lastname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Класс в школе:</label>
+                        <input type="number" class="form-control" id="child-class" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Ф.И.О. родителей:</label>
+                        <input type="text" class="form-control" id="child-fio-parent" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Контактный телефон:</label>
+                        <input type="text" class="form-control" id="child-phone" required>
+                    </div>
+                </form>
+                {% endif %}
+                {% if form.classNumber && form.classNumber <= 4 %}
+                <div id="young-test" class="form-tester__form">
+
+                    <div class="form-tester__task {{ step === 1 ? 'form-tester__task--show' : '' }}">
+                        <h3>№1. Select words from the box under the pictures.</h3>
+                        <div class="form-tester__task-once">
+                            <div class="form-tester__task-once-img"><img class="testimg" src="{{ tasks[1].images[substep] }}" /></div>
+                            <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-light task1-btn" data-index="1">a book</button>
+                                <button type="button" class="btn btn-light task1-btn" data-index="2">a cat</button>
+                                <button type="button" class="btn btn-light task1-btn" data-index="3">a girl</button>
+                                <button type="button" class="btn btn-light task1-btn" data-index="4">the moon</button>
+                                <button type="button" class="btn btn-light task1-btn" data-index="5">a train</button>
+                                <button type="button" class="btn btn-light task1-btn" data-index="6">a parrot</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-tester__task {{ step === 2 ? 'form-tester__task--show' : '' }}">
+                        <h3>№2. Complete the sentences with one word.</h3>
+                        <div class="form-tester__task-inline-inputs">
+                            <ul class="sentences form-group">
+                                <li>– How <input class="form-control" data-correct="are" type="text">you? – Very well,
+                                    thank you.</li>
+                                <li>–Joy <input class="form-control" data-correct="is" type="text">Sally’s parrot</li>
+                                <li>– What do you have<input class="form-control" data-correct="for" type="text">
+                                    breakfast? – Bread and butter</li>
+                                <li>– How<input class="form-control" data-correct="old" type="text"> are you? – I’m ten</li>
+                                <li>– Can you <input class="form-control" data-correct="ride" type="text">a bike? – No, I
+                                    can’t</li>
+                                <li>– What is your <input class="form-control" data-correct="name" type="text">? – I’m Kate</li>
+                                <li>– How do you <input class="form-control" data-correct="spell" type="text">it? – K-A-T-E</li>
+                                <li>– What is your favourite<input class="form-control" data-correct="food" type="text">? –
+                                    Chicken and chips</li>
+                                <li>I learn English <input class="form-control" data-correct="and" type="text"> Russian.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-tester__task {{ step === 3 ? 'form-tester__task--show' : '' }}">
+                        <h3>№3. Put the words in the correct order and write the sentences.</h3>
+                        <div class="form-tester__task-sentences">
+                            <div class="form-tester__task-sentences-words">
+                                <div class="rw">
+                                    <div class="form-tester__task-sentences-field">
+                                        <p data-correct="On Friday he is going to watch a football match" id="words-1"></p>
+                                        <button id="clear-words-1"class="btn btn-outline-danger">X</button>
+                                    </div>
+                                    <div>
+                                        <button data-id="1" class="btn btn-outline-primary">a</button>
+                                        <button data-id="1" class="btn btn-outline-primary">football</button>
+                                        <button data-id="1" class="btn btn-outline-primary">Friday </button>
+                                        <button data-id="1" class="btn btn-outline-primary">going</button>
+                                        <button data-id="1" class="btn btn-outline-primary">he</button>
+                                        <button data-id="1" class="btn btn-outline-primary">is</button>
+                                        <button data-id="1" class="btn btn-outline-primary">match</button>
+                                        <button data-id="1" class="btn btn-outline-primary">On</button>
+                                        <button data-id="1" class="btn btn-outline-primary">to</button>
+                                        <button data-id="1" class="btn btn-outline-primary">watch</button>
+                                    </div>
+                                </div>
+                                <div class="rw">
+                                    <div class="form-tester__task-sentences-field">
+                                        <p data-correct="Is the girl riding a bike?" id="words-2"></p>
+                                        <button id="clear-words-2"class="btn btn-outline-danger">X</button>
+                                    </div>
+                                    <div>
+                                        <button data-id="2" class="btn btn-outline-primary">a</button>
+                                        <button data-id="2" class="btn btn-outline-primary">bike ?</button>
+                                        <button data-id="2" class="btn btn-outline-primary">girl</button>
+                                        <button data-id="2" class="btn btn-outline-primary">Is</button>
+                                        <button data-id="2" class="btn btn-outline-primary">riding</button>
+                                        <button data-id="2" class="btn btn-outline-primary">the</button>
+                                    </div>
+                                </div>
+                                <div class="rw">
+                                    <div class="form-tester__task-sentences-field">
+                                        <p data-correct="Sandy isn’t very good at science" id="words-3"></p>
+                                        <button id="clear-words-3"class="btn btn-outline-danger">X</button>
+                                    </div>
+                                    <div>
+                                        <button data-id="3" class="btn btn-outline-primary">Sandy</button>
+                                        <button data-id="3" class="btn btn-outline-primary">science</button>
+                                        <button data-id="3" class="btn btn-outline-primary">isn’t</button>
+                                        <button data-id="3" class="btn btn-outline-primary">at</button>
+                                        <button data-id="3" class="btn btn-outline-primary">good</button>
+                                        <button data-id="3" class="btn btn-outline-primary">very</button>
+                                    </div>
+                                </div>
+                                <div class="rw">
+                                    <div class="form-tester__task-sentences-field">
+                                        <p data-correct="I think she will be an artist" id="words-4"></p>
+                                        <button id="clear-words-4"class="btn btn-outline-danger">X</button>
+                                    </div>
+                                    <div>
+                                        <button data-id="4" class="btn btn-outline-primary">she</button>
+                                        <button data-id="4" class="btn btn-outline-primary">will</button>
+                                        <button data-id="4" class="btn btn-outline-primary">artist</button>
+                                        <button data-id="4" class="btn btn-outline-primary">I</button>
+                                        <button data-id="4" class="btn btn-outline-primary">be</button>
+                                        <button data-id="4" class="btn btn-outline-primary">an</button>
+                                        <button data-id="4" class="btn btn-outline-primary">think</button>
+                                    </div>
+                                </div>
+                                <div class="rw">
+                                    <div class="form-tester__task-sentences-field">
+                                        <p data-correct="Craig has never swum in the sea" id="words-5"></p>
+                                        <button id="clear-words-5"class="btn btn-outline-danger">X</button>
+                                    </div>
+                                    <div>
+                                        <button data-id="5" class="btn btn-outline-primary">never</button>
+                                        <button data-id="5" class="btn btn-outline-primary">in</button>
+                                        <button data-id="5" class="btn btn-outline-primary">has</button>
+                                        <button data-id="5" class="btn btn-outline-primary">sea</button>
+                                        <button data-id="5" class="btn btn-outline-primary">swum</button>
+                                        <button data-id="5" class="btn btn-outline-primary">Craig</button>
+                                        <button data-id="5" class="btn btn-outline-primary">the</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-tester__task {{ step === 4 ? 'form-tester__task--show' : '' }}">
+                        <h3>№4. Find the answers to the questions.</h3>
+                        <div class="form-tester__task-find">
+                            <div class="form-tester__task-find-left">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">What did Megan do yesterday?</li>
+                                    <li class="list-group-item">Did Sally Play tennis?</li>
+                                    <li class="list-group-item">Where was it made?</li>
+                                    <li class="list-group-item">Did Ben and Rick play football?</li>
+                                    <li class="list-group-item">Is the man washing his car?</li>
+                                    <li class="list-group-item">How many seats has it got?</li>
+                                </ul>
+                            </div>
+                            <div class="form-tester__task-find-right">
+                                <ul class="list-group list-group-flush" id="draggable-answers">
+                                    <li class="list-group-item">In France.</li>
+                                    <li class="list-group-item">She went swimming.</li>
+                                    <li class="list-group-item">No, he isn’t.</li>
+                                    <li class="list-group-item">Four.</li>
+                                    <li class="list-group-item">No, they didn’t.</li>
+                                    <li class="list-group-item">Yes, she did.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if step === 5 %}
+                <div class="jumbotron">
+                    <h1 class="display-4">Дорогой(ая), {{ form.firstName + ' ' + form.lastName }}</h1>
+                    <p class="lead">Бла-бла-бла фывттыфоволфытвфолывтфыовтфтвлыф и возрасту называется <b>{{ resultName }}</b>. Рекомендуем фывфывофтывтф вдфытвтыфтовтфывтфтывдлфытвлфытвлтфылтвтыфтвтфвфытолв.</p>
+                    <hr class="my-4">
+                    <p>Получить подробную флотывтофывтоыфтвтлыфтвфтыотфв олфытвлфытвфыловтфытвлыфтвт тыфтвофыв тофтвлыфовтофывт 99-18-18</p>
+                    <a class="btn btn-primary btn-lg" href="ССЫЛКА_НА_ЗАПИСЬ" role="button">Записаться</a>
+                </div>
+                {% endif %}
+
+                {% if step > 0 && step < 5 %}
+                <button id="prev-btn" type="submit" class="btn btn-light">Назад</button>
+                {% endif %}
+
+                {% if step < 5 %}
+                <button id="next-btn" type="submit" class="btn btn-outline-primary">Далее</button>
+                {% endif %}
+            </div>
+            </script>
+
+    </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.6.0/Sortable.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/monkberry-standalone/4.0.2/monkberry.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
