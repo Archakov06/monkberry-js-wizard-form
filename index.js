@@ -17,7 +17,13 @@ window.onload = function() {
       hideButtons: false,
       tasks: {
         1: {
-          images: ['./parrot.jpg', './train.jpg', './book.jpg', './girl.jpg', './moon.jpg'],
+          images: [
+            './img/parrot.jpg',
+            './img/train.jpg',
+            './img/book.jpg',
+            './img/girl.jpg',
+            './img/moon.jpg',
+          ],
           corrects: ['a parrot', 'a train', 'a book', 'a girl', 'the moon'],
         },
         3: {
